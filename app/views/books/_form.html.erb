@@ -17,8 +17,8 @@
   </div>
 
   <div>
-    <%= form.label :auther, style: "display: block" %>
-    <%= form.text_field :auther %>
+    <%= form.label :auther_id, style: "display: block" %>
+    <%= form.collection_select :author_id, Author.all, :id, :name, prompt: "Select an Author" %>
   </div>
 
   <div>
