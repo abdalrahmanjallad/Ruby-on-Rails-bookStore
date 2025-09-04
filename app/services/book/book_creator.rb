@@ -12,6 +12,6 @@ class BookCreator
       { success: false, errors: book.errors.full_messages }
     end
   rescue => e
-    { success: false, errors: ["System error: #{e.message}"] }
+    { success: false, errors: [ "System error: #{e.message}" ] }
   end
 end

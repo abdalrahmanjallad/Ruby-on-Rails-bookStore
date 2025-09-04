@@ -59,4 +59,3 @@ authors.each do |author_data|
 end
 
 puts "✅ Done seeding!"
-
