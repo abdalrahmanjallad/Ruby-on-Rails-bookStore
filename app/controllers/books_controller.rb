@@ -57,6 +57,12 @@ class BooksController < ApplicationController
     end
   end
 
+  # /books/short-books
+  def short_books
+    @books = ActiveRecord::Base.connection.execute("SELECT * FROM books WHERE number_of_pages < 200")
+    render :short_books
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_book
