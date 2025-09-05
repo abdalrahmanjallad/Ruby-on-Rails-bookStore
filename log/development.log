@@ -1339,3 +1339,447 @@ Processing by Rails::PwaController#manifest as JSON
 Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
 
 
+Started GET "/books/" for 127.0.0.1 at 2025-09-05 15:47:36 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (13.9ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:8
+  Rendered books/_book.html.erb (Duration: 0.2ms | GC: 0.1ms)
+  Rendered books/_book.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered books/_book.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered books/_book.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered books/_book.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered books/_book.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered books/index.html.erb within layouts/application (Duration: 30.1ms | GC: 18.8ms)
+  Rendered layout layouts/application.html.erb (Duration: 48.1ms | GC: 21.3ms)
+Completed 200 OK in 61ms (Views: 30.3ms | ActiveRecord: 21.4ms (1 query, 0 cached) | GC: 23.9ms)
+
+
+Started GET "/manifest.json" for 127.0.0.1 at 2025-09-05 15:47:36 +0300
+Processing by Rails::PwaController#manifest as JSON
+  Rendering pwa/manifest.json.erb
+  Rendered pwa/manifest.json.erb (Duration: 0.2ms | GC: 0.0ms)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.1ms)
+
+
+Started GET "/books/short_books" for 127.0.0.1 at 2025-09-05 15:47:46 +0300
+Processing by BooksController#short_books as HTML
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT * FROM books WHERE nuber_of_pages < 200[0m
+  ↳ app/controllers/books_controller.rb:62:in `short_books'
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 1.0ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column "nuber_of_pages" does not exist
+LINE 1: SELECT * FROM books WHERE nuber_of_pages < 200
+                                  ^
+HINT:  Perhaps you meant to reference the column "books.number_of_pages".
+):
+
+Causes:
+PG::UndefinedColumn (ERROR:  column "nuber_of_pages" does not exist
+LINE 1: SELECT * FROM books WHERE nuber_of_pages < 200
+                                  ^
+HINT:  Perhaps you meant to reference the column "books.number_of_pages".
+)
+  
+Started GET "/books/short_books" for 127.0.0.1 at 2025-09-05 15:48:59 +0300
+Processing by BooksController#short_books as HTML
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT * FROM books WHERE number_of_pages < 200[0m
+  ↳ app/controllers/books_controller.rb:62:in `short_books'
+  Rendering layout layouts/application.html.erb
+  Rendering books/short_books.html.erb within layouts/application
+  Rendered books/short_books.html.erb within layouts/application (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.8ms | GC: 0.0ms)
+Completed 200 OK in 6ms (Views: 5.6ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/manifest.json" for 127.0.0.1 at 2025-09-05 15:48:59 +0300
+Processing by Rails::PwaController#manifest as JSON
+  Rendering pwa/manifest.json.erb
+  Rendered pwa/manifest.json.erb (Duration: 0.1ms | GC: 0.0ms)
+Completed 200 OK in 0ms (Views: 0.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/books" for 127.0.0.1 at 2025-09-05 15:49:01 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:8
+  Rendered books/_book.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered books/_book.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered books/_book.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered books/_book.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered books/_book.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered books/_book.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered books/index.html.erb within layouts/application (Duration: 10.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 12.7ms | GC: 0.0ms)
+Completed 200 OK in 17ms (Views: 10.0ms | ActiveRecord: 3.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2025-09-05 15:49:18 +0300
+Processing by BooksController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mAuthor Load (1.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:21
+  Rendered books/_form.html.erb (Duration: 21.9ms | GC: 0.0ms)
+  Rendered books/new.html.erb within layouts/application (Duration: 23.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 25.7ms | GC: 0.0ms)
+Completed 200 OK in 28ms (Views: 23.0ms | ActiveRecord: 3.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/manifest.json" for 127.0.0.1 at 2025-09-05 15:49:18 +0300
+Processing by Rails::PwaController#manifest as JSON
+  Rendering pwa/manifest.json.erb
+  Rendered pwa/manifest.json.erb (Duration: 0.1ms | GC: 0.0ms)
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/books" for 127.0.0.1 at 2025-09-05 15:49:37 +0300
+Processing by BooksController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "book"=>{"name"=>"Short book", "author_id"=>"3", "description"=>"dsfdsfdsf", "number_of_pages"=>"33"}, "commit"=>"Create Book"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/books_controller.rb:27:in `block in create'
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:27:in `block in create'
+  [1m[36mBook Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "books" WHERE LOWER("books"."name") = LOWER($1) LIMIT $2[0m  [["name", "Short book"], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:27:in `block in create'
+  [1m[36mBook Create (0.4ms)[0m  [1m[32mINSERT INTO "books" ("name", "description", "number_of_pages", "created_at", "updated_at", "author_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Short book"], ["description", "dsfdsfdsf"], ["number_of_pages", 33], ["created_at", "2025-09-05 12:49:37.771848"], ["updated_at", "2025-09-05 12:49:37.771848"], ["author_id", 3]]
+  ↳ app/controllers/books_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/books_controller.rb:27:in `block in create'
+Redirected to http://127.0.0.1:3000/books/10
+Completed 302 Found in 13ms (ActiveRecord: 2.2ms (3 queries, 0 cached) | GC: 0.7ms)
+
+
+Started GET "/books/10" for 127.0.0.1 at 2025-09-05 15:49:37 +0300
+Processing by BooksController#show as TURBO_STREAM
+  Parameters: {"id"=>"10"}
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:69:in `set_book'
+  Rendering layout layouts/application.html.erb
+  Rendering books/show.html.erb within layouts/application
+  Rendered books/_book.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered books/show.html.erb within layouts/application (Duration: 1.0ms | GC: 0.1ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | GC: 0.1ms)
+Completed 200 OK in 4ms (Views: 2.2ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.1ms)
+
+
+Started GET "/books/" for 127.0.0.1 at 2025-09-05 15:49:42 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:8
+  Rendered books/_book.html.erb (Duration: 0.3ms | GC: 0.1ms)
+  Rendered books/_book.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered books/_book.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered books/_book.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered books/_book.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered books/_book.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered books/_book.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered books/index.html.erb within layouts/application (Duration: 4.9ms | GC: 0.1ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | GC: 0.1ms)
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 0.1ms)
+
+
+Started GET "/manifest.json" for 127.0.0.1 at 2025-09-05 15:49:42 +0300
+Processing by Rails::PwaController#manifest as JSON
+  Rendering pwa/manifest.json.erb
+  Rendered pwa/manifest.json.erb (Duration: 0.1ms | GC: 0.0ms)
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/books/short_books" for 127.0.0.1 at 2025-09-05 15:49:44 +0300
+Processing by BooksController#short_books as HTML
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT * FROM books WHERE number_of_pages < 200[0m
+  ↳ app/controllers/books_controller.rb:62:in `short_books'
+  Rendering layout layouts/application.html.erb
+  Rendering books/short_books.html.erb within layouts/application
+  Rendered books/short_books.html.erb within layouts/application (Duration: 2.4ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.7ms | GC: 0.2ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for {"id"=>10, "name"=>"Short book", "description"=>"dsfdsfdsf", "number_of_pages"=>33, "created_at"=>2025-09-05 12:49:37.771848 UTC, "updated_at"=>2025-09-05 12:49:37.771848 UTC, "author_id"=>3}:Hash):
+
+Causes:
+NoMethodError (undefined method `name' for {"id"=>10, "name"=>"Short book", "description"=>"dsfdsfdsf", "number_of_pages"=>33, "created_at"=>2025-09-05 12:49:37.771848 UTC, "updated_at"=>2025-09-05 12:49:37.771848 UTC, "author_id"=>3}:Hash)
+    4: <ul>
+    5:   <% @books.each do |book| %>
+    6:     <li>
+    7:       <%= book.name %> - <%= book.number_of_pages %> pages
+    8:     </li>
+    9:   <% end %>
+   10: </ul>
+  
+app/views/books/short_books.html.erb:7
+app/views/books/short_books.html.erb:5:in `each'
+app/views/books/short_books.html.erb:5
+app/controllers/books_controller.rb:63:in `short_books'
+Started GET "/books/short_books" for 127.0.0.1 at 2025-09-05 15:52:03 +0300
+Processing by BooksController#short_books as HTML
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT * FROM books WHERE number_of_pages < 200[0m
+  ↳ app/controllers/books_controller.rb:62:in `short_books'
+  Rendering layout layouts/application.html.erb
+  Rendering books/short_books.html.erb within layouts/application
+  Rendered books/short_books.html.erb within layouts/application (Duration: 0.8ms | GC: 0.1ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.9ms | GC: 0.1ms)
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for {"id"=>10, "name"=>"Short book", "description"=>"dsfdsfdsf", "number_of_pages"=>33, "created_at"=>2025-09-05 12:49:37.771848 UTC, "updated_at"=>2025-09-05 12:49:37.771848 UTC, "author_id"=>3}:Hash):
+
+Causes:
+NoMethodError (undefined method `name' for {"id"=>10, "name"=>"Short book", "description"=>"dsfdsfdsf", "number_of_pages"=>33, "created_at"=>2025-09-05 12:49:37.771848 UTC, "updated_at"=>2025-09-05 12:49:37.771848 UTC, "author_id"=>3}:Hash)
+    4: <ul>
+    5:   <% @books.each do |book| %>
+    6:     <li>
+    7:       <%= book.name %> - <%= book.number_of_pages %> pages
+    8:     </li>
+    9:   <% end %>
+   10: </ul>
+  
+app/views/books/short_books.html.erb:7
+app/views/books/short_books.html.erb:5:in `each'
+app/views/books/short_books.html.erb:5
+app/controllers/books_controller.rb:63:in `short_books'
+Started GET "/books/short_books" for 127.0.0.1 at 2025-09-05 15:52:06 +0300
+Processing by BooksController#short_books as HTML
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT * FROM books WHERE number_of_pages < 200[0m
+  ↳ app/controllers/books_controller.rb:62:in `short_books'
+  Rendering layout layouts/application.html.erb
+  Rendering books/short_books.html.erb within layouts/application
+  Rendered books/short_books.html.erb within layouts/application (Duration: 2.1ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.3ms | GC: 0.2ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for {"id"=>10, "name"=>"Short book", "description"=>"dsfdsfdsf", "number_of_pages"=>33, "created_at"=>2025-09-05 12:49:37.771848 UTC, "updated_at"=>2025-09-05 12:49:37.771848 UTC, "author_id"=>3}:Hash):
+
+Causes:
+NoMethodError (undefined method `name' for {"id"=>10, "name"=>"Short book", "description"=>"dsfdsfdsf", "number_of_pages"=>33, "created_at"=>2025-09-05 12:49:37.771848 UTC, "updated_at"=>2025-09-05 12:49:37.771848 UTC, "author_id"=>3}:Hash)
+    4: <ul>
+    5:   <% @books.each do |book| %>
+    6:     <li>
+    7:       <%= book.name %> - <%= book.number_of_pages %> pages
+    8:     </li>
+    9:   <% end %>
+   10: </ul>
+  
+app/views/books/short_books.html.erb:7
+app/views/books/short_books.html.erb:5:in `each'
+app/views/books/short_books.html.erb:5
+app/controllers/books_controller.rb:63:in `short_books'
+Started GET "/books/short_books" for 127.0.0.1 at 2025-09-05 15:53:42 +0300
+Processing by BooksController#short_books as HTML
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT * FROM books WHERE number_of_pages < 200[0m
+  ↳ app/controllers/books_controller.rb:62:in `short_books'
+  Rendering layout layouts/application.html.erb
+  Rendering books/short_books.html.erb within layouts/application
+  Rendered books/short_books.html.erb within layouts/application (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.7ms | GC: 0.4ms)
+Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.5ms)
+
+
+Started GET "/manifest.json" for 127.0.0.1 at 2025-09-05 15:53:42 +0300
+Processing by Rails::PwaController#manifest as JSON
+  Rendering pwa/manifest.json.erb
+  Rendered pwa/manifest.json.erb (Duration: 0.1ms | GC: 0.0ms)
+Completed 200 OK in 0ms (Views: 0.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2025-09-05 15:55:54 +0300
+Processing by BooksController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:21
+  Rendered books/_form.html.erb (Duration: 8.8ms | GC: 0.2ms)
+  Rendered books/new.html.erb within layouts/application (Duration: 10.2ms | GC: 0.4ms)
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | GC: 0.5ms)
+Completed 200 OK in 32ms (Views: 10.4ms | ActiveRecord: 4.6ms (1 query, 0 cached) | GC: 1.0ms)
+
+
+Started GET "/manifest.json" for 127.0.0.1 at 2025-09-05 15:55:54 +0300
+Processing by Rails::PwaController#manifest as JSON
+  Rendering pwa/manifest.json.erb
+  Rendered pwa/manifest.json.erb (Duration: 0.1ms | GC: 0.0ms)
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/books" for 127.0.0.1 at 2025-09-05 15:56:01 +0300
+Processing by BooksController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "book"=>{"name"=>"jallad", "author_id"=>"", "description"=>"", "number_of_pages"=>""}, "commit"=>"Create Book"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/books_controller.rb:27:in `block in create'
+  [1m[36mBook Exists? (1.9ms)[0m  [1m[34mSELECT 1 AS one FROM "books" WHERE LOWER("books"."name") = LOWER($1) LIMIT $2[0m  [["name", "jallad"], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/books_controller.rb:27:in `block in create'
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/books/_form.html.erb:21
+  Rendered books/_form.html.erb (Duration: 3.4ms | GC: 0.2ms)
+  Rendered books/new.html.erb within layouts/application (Duration: 3.7ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | GC: 0.3ms)
+Completed 422 Unprocessable Content in 13ms (Views: 5.6ms | ActiveRecord: 2.5ms (2 queries, 0 cached) | GC: 0.6ms)
+
+
+Started POST "/books" for 127.0.0.1 at 2025-09-05 15:56:09 +0300
+Processing by BooksController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "book"=>{"name"=>"jallad", "author_id"=>"2", "description"=>"", "number_of_pages"=>"199"}, "commit"=>"Create Book"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/books_controller.rb:27:in `block in create'
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:27:in `block in create'
+  [1m[36mBook Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "books" WHERE LOWER("books"."name") = LOWER($1) LIMIT $2[0m  [["name", "jallad"], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:27:in `block in create'
+  [1m[36mBook Create (0.3ms)[0m  [1m[32mINSERT INTO "books" ("name", "description", "number_of_pages", "created_at", "updated_at", "author_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "jallad"], ["description", ""], ["number_of_pages", 199], ["created_at", "2025-09-05 12:56:09.786404"], ["updated_at", "2025-09-05 12:56:09.786404"], ["author_id", 2]]
+  ↳ app/controllers/books_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/books_controller.rb:27:in `block in create'
+Redirected to http://127.0.0.1:3000/books/11
+Completed 302 Found in 12ms (ActiveRecord: 1.6ms (3 queries, 0 cached) | GC: 0.5ms)
+
+
+Started GET "/books/11" for 127.0.0.1 at 2025-09-05 15:56:09 +0300
+Processing by BooksController#show as TURBO_STREAM
+  Parameters: {"id"=>"11"}
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:69:in `set_book'
+  Rendering layout layouts/application.html.erb
+  Rendering books/show.html.erb within layouts/application
+  Rendered books/_book.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered books/show.html.erb within layouts/application (Duration: 2.1ms | GC: 0.1ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.5ms | GC: 0.1ms)
+Completed 200 OK in 7ms (Views: 3.8ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.1ms)
+
+
+Started GET "/books" for 127.0.0.1 at 2025-09-05 15:56:11 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:8
+  Rendered books/_book.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered books/_book.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered books/_book.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered books/_book.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered books/_book.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered books/_book.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered books/_book.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered books/_book.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered books/index.html.erb within layouts/application (Duration: 5.5ms | GC: 0.1ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | GC: 0.2ms)
+Completed 200 OK in 10ms (Views: 7.7ms | ActiveRecord: 0.7ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/books" for 127.0.0.1 at 2025-09-05 15:56:12 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:8
+  Rendered books/_book.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered books/_book.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered books/_book.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered books/_book.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered books/_book.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered books/_book.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered books/_book.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered books/_book.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered books/index.html.erb within layouts/application (Duration: 4.8ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | GC: 0.4ms)
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/books/" for 127.0.0.1 at 2025-09-05 15:56:16 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:8
+  Rendered books/_book.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered books/_book.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered books/_book.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered books/_book.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered books/_book.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered books/_book.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered books/_book.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered books/_book.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered books/index.html.erb within layouts/application (Duration: 4.3ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | GC: 0.4ms)
+Completed 200 OK in 8ms (Views: 6.3ms | ActiveRecord: 0.7ms (1 query, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/manifest.json" for 127.0.0.1 at 2025-09-05 15:56:16 +0300
+Processing by Rails::PwaController#manifest as JSON
+  Rendering pwa/manifest.json.erb
+  Rendered pwa/manifest.json.erb (Duration: 0.1ms | GC: 0.0ms)
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/books/short_books" for 127.0.0.1 at 2025-09-05 15:56:17 +0300
+Processing by BooksController#short_books as HTML
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT * FROM books WHERE number_of_pages < 200[0m
+  ↳ app/controllers/books_controller.rb:62:in `short_books'
+  Rendering layout layouts/application.html.erb
+  Rendering books/short_books.html.erb within layouts/application
+  Rendered books/short_books.html.erb within layouts/application (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.2ms | GC: 0.2ms)
+Completed 200 OK in 6ms (Views: 3.8ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/manifest.json" for 127.0.0.1 at 2025-09-05 15:56:17 +0300
+Processing by Rails::PwaController#manifest as JSON
+  Rendering pwa/manifest.json.erb
+  Rendered pwa/manifest.json.erb (Duration: 0.1ms | GC: 0.0ms)
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/books/short_books" for 127.0.0.1 at 2025-09-05 15:56:23 +0300
+Processing by BooksController#short_books as HTML
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT * FROM books WHERE number_of_pages < 200[0m
+  ↳ app/controllers/books_controller.rb:62:in `short_books'
+  Rendering layout layouts/application.html.erb
+  Rendering books/short_books.html.erb within layouts/application
+  Rendered books/short_books.html.erb within layouts/application (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.4ms | GC: 0.0ms)
+Completed 200 OK in 14ms (Views: 2.9ms | ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 8.8ms)
+
+
+Started GET "/manifest.json" for 127.0.0.1 at 2025-09-05 15:56:23 +0300
+Processing by Rails::PwaController#manifest as JSON
+  Rendering pwa/manifest.json.erb
+  Rendered pwa/manifest.json.erb (Duration: 0.1ms | GC: 0.0ms)
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/books" for 127.0.0.1 at 2025-09-05 15:56:35 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:8
+  Rendered books/_book.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered books/_book.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered books/_book.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered books/_book.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered books/_book.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered books/_book.html.erb (Duration: 0.4ms | GC: 0.3ms)
+  Rendered books/_book.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered books/_book.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered books/index.html.erb within layouts/application (Duration: 5.6ms | GC: 0.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | GC: 0.3ms)
+Completed 200 OK in 9ms (Views: 7.9ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 0.3ms)
+
+

@@ -1,0 +1,12 @@
+
+<h1>Short Books</h1>
+
+<ul>
+  <% @books.each do |book| %>
+    <li>
+      <%= book["name"] %> - <%= book["number_of_pages"] %> pages
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Back to all books", books_path %>
